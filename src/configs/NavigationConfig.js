@@ -15,22 +15,22 @@ const dashBoardNavTree = [
 const extraNavTree = [
   {
     key: "extra",
-    path: `${APP_PREFIX_PATH}/pages`,
-    title: "sidenav.pages",
+    path: `${APP_PREFIX_PATH}/clients`,
+    title: "sidenav.clients",
     icon: PlusCircleOutlined,
     breadcrumb: true,
     submenu: [
       {
         key: "extra-pages",
-        path: `${APP_PREFIX_PATH}/pages`,
-        title: "sidenav.pages",
+        path: `${APP_PREFIX_PATH}/clients`,
+        title: "sidenav.clients",
         icon: FileTextOutlined,
         breadcrumb: true,
         submenu: [
           {
             key: "extra-pages-profile",
-            path: `${APP_PREFIX_PATH}/pages/profile`,
-            title: "sidenav.pages.profile",
+            path: `${APP_PREFIX_PATH}/clients/clients-list`,
+            title: "sidenav.clients.clientslist",
             icon: "",
             breadcrumb: false,
             submenu: [],
