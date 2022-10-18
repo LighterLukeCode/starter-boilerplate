@@ -5,7 +5,7 @@ import Loading from "components/shared-components/Loading";
 const Pages = ({ match }) => (
   <Suspense fallback={<Loading cover="content" />}>
     <Switch>
-      <Redirect exact from={`${match.url}`} to={`${match.url}/user-list`} />
+      <Redirect exact from={`${match.url}`} to={`${match.url}/clients-list`} />
 
       <Route path={`${match.url}/clients-list`} component={lazy(() => import(`./clients-list`))} />
     </Switch>

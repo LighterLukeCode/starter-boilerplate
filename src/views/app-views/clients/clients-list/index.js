@@ -135,7 +135,7 @@ export class UserList extends Component {
       },
     ];
 
-    return this.isLoading ? (
+    return this.state.isLoading ? (
       <Loading />
     ) : (
       <Card bodyStyle={{ padding: "0px" }}>
