@@ -1,11 +1,15 @@
-import React from 'react'
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const Home = () => {
-	return (
-		<div>
-			Home component works!
-		</div>
-	)
-}
+  const dispatch = useDispatch();
 
-export default Home
+  return (
+    <>
+      <div>Home component works!</div>
+      <button>gkfdlkg</button>
+    </>
+  );
+};
+
+export default Home;

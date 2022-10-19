@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Card, Table, Tag, Tooltip, message, Button } from "antd";
 import { EyeOutlined, DeleteOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
 import UserView from "./UserView";
 import AvatarStatus from "components/shared-components/AvatarStatus";
@@ -25,7 +26,6 @@ export class UserList extends Component {
       .catch(e => {
         console.log(e);
       });
-    console.log("render");
   }
 
   deleteUser = userId => {
@@ -51,14 +51,16 @@ export class UserList extends Component {
 
   render() {
     const { users, userProfileVisible, selectedUser } = this.state;
-    console.log(this.state.isLoading);
+
     const tableColumns = [
       {
         title: "User",
         dataIndex: "name",
         render: (_, record) => (
           <div className="d-flex">
-            <AvatarStatus src={record.img} name={record.name} subTitle={record.email} />
+            <Link to="edit-profile">
+              <AvatarStatus src={record.img} name={record.name} subTitle={record.email} />
+            </Link>
           </div>
         ),
         sorter: {
@@ -109,17 +111,6 @@ export class UserList extends Component {
         dataIndex: "actions",
         render: (_, elm) => (
           <div className="text-right">
-            <Tooltip title="View">
-              <Button
-                type="primary"
-                className="mr-2"
-                icon={<EyeOutlined />}
-                onClick={() => {
-                  this.showUserProfile(elm);
-                }}
-                size="small"
-              />
-            </Tooltip>
             <Tooltip title="Delete">
               <Button
                 danger
@@ -136,7 +127,7 @@ export class UserList extends Component {
     ];
 
     return this.state.isLoading ? (
-      <Loading />
+      <Loading cover="content" />
     ) : (
       <Card bodyStyle={{ padding: "0px" }}>
         <Table columns={tableColumns} dataSource={users} rowKey="id" />
@@ -153,17 +144,3 @@ export class UserList extends Component {
 }
 
 export default UserList;
-
-// const ClientsList = () => {
-//   const fetchUsers = () => {
-//     fetch("https://jsonplaceholder.typicode.com/users")
-//       .then(res => res.json())
-//       .then(data => console.log(data));
-//   };
-
-//   React.useEffect(() => fetchUsers, []);
-
-//   return <h1>Clients here</h1>;
-// };
-
-// export default ClientsList;
